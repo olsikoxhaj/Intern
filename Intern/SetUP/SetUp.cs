@@ -3,49 +3,48 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Intern.SetUP
 {
-    
     public class SetUp
     {
-        public IWebDriver driver;
+        protected IWebDriver driver;
 
         [SetUp]
-        public void inicialisize()
+        public void OneTimeSetUp()
         {
-            string browserType = "Chrome";
-            driver = InicializimiBrowser(browserType);
-            
-            driver.Manage().Window.Maximize();
-            
+            string browserType = "Chrome"; // Change to "Edge" if needed
+            driver = InitDriver(browserType);
         }
 
-        private IWebDriver InicializimiBrowser(string browserType)
+        public IWebDriver InitDriver(string browserType)
         {
-            if(browserType.Equals("Chrome",StringComparison.OrdinalIgnoreCase))
+            IWebDriver driver = null; // Initialize it to null
+
+            if (browserType.Equals("Chrome", StringComparison.OrdinalIgnoreCase))
             {
                 driver = new ChromeDriver();
+                //driver = new ChromeDriver(@"C:\Users\imecaj\source\repos\Intern\packages\Selenium.WebDriver.ChromeDriver.118.0.5993.7000\driver\win32");
             }
-             else if (browserType.Equals("Edge", StringComparison.OrdinalIgnoreCase))
+            else if (browserType.Equals("Edge", StringComparison.OrdinalIgnoreCase))
             {
                 driver = new EdgeDriver();
             }
             else
             {
-                throw new ArgumentException("Nuk ke vendosur driver te sakte");
+                throw new ArgumentException("Invalid browser type specified.");
             }
+
             return driver;
         }
+
         [TearDown]
-        public void Cleanup()
+        public void OneTimeTearDown()
         {
-            driver.Quit();
+            if (driver != null)
+            {
+                driver.Quit();
+            }
         }
     }
 }
