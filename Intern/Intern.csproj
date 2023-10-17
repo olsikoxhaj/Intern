@@ -104,6 +104,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PageObject\LogInPage.cs" />
     <Compile Include="SetUP\Constant.cs" />
     <Compile Include="SetUP\SetUp.cs" />
     <Compile Include="TestCase\LogIN.cs" />

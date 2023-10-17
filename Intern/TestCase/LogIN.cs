@@ -1,4 +1,5 @@
-﻿using Intern.SetUP;
+﻿using Intern.PageObject;
+using Intern.SetUP;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
@@ -14,21 +15,17 @@ namespace Intern.TestCase
         [Test]
         public void LogInOnly()
         {
-
+            //krijohen dhe ketu therriten vetem metodat
             driver.Navigate().GoToUrl(Constant.BaseUrl);
 
-            IWebElement username = driver.FindElement(By.XPath("//input[@type='text' and @name='username' and @id='username']"));
-            username.SendKeys(Constant.Username);
-            //By.CssSelector(#username)
+            LogInPage LogIn= new LogInPage();
+            LogIn.LogInSucces();
 
-            IWebElement Password = driver.FindElement(By.XPath("//input[@type='password' and @name='password' and @id='password']"));
-            Password.SendKeys(Constant.Password);
+            ///IWebElement Admin = driver.FindElement(By.XPath("//input[@type='radio' and @value='admin' and @id='usertype' and @name='radio' and @checked='checked']"));
+            // Admin.Click();
 
-            IWebElement Admin = driver.FindElement(By.XPath("//input[@type='radio' and @value='admin' and @id='usertype' and @name='radio' and @checked='checked']"));
-            Admin.Click();
-
-            var state = new SelectElement(driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/div/form/div[5]/select")));
-            state.SelectByValue("teach");
+            /// var state = new SelectElement(driver.FindElement(By.XPath("/html/body/div[1]/div/div/div/div/form/div[5]/select")));
+            ////state.SelectByValue("teach");
             Thread.Sleep(2000);
 
             IWebElement checkbox = driver.FindElement(By.CssSelector("#terms"));
