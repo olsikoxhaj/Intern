@@ -15,28 +15,42 @@ namespace Intern.TestCase
             logInPage = new LogInPage(driver);
             driver.Navigate().GoToUrl(Constant.BaseUrl);
             logInPage.LogInSucces();
-            // Your test code 
         }
         [Test]
         public void LogInUsernameWrong()
-        {
+        { 
+            logInPage= new LogInPage(driver);
             driver.Navigate().GoToUrl(Constant.BaseUrl);
-            logInPage.LogInSucces();
-            // Your test code 
+            logInPage.UsernameWrong();
         }
         [Test]
         public void LogInPasswWrong()
         {
+           logInPage = new LogInPage(driver);
             driver.Navigate().GoToUrl(Constant.BaseUrl);
-            logInPage.LogInSucces();
-            // Your test code 
+            logInPage.PasswordWrong();
         }
 
         [Test]
-        public void TestLoginAddToCart()
+        public void PasswordNull()
         {
-            logInPage.LogInSucces();
-            // Your test code 
+            logInPage = new LogInPage(driver);
+            driver.Navigate().GoToUrl(Constant.BaseUrl);
+            logInPage.PasswordNull();
+        }
+        [Test]
+        public void PasswordnullUsernameNull()
+        {
+            logInPage = new LogInPage(driver);
+            driver.Navigate().GoToUrl(Constant.BaseUrl);
+            logInPage.PasswordNullUsernameNull();
+        }
+        [Test]
+        public void LogInAddtoCart()
+        {
+            logInPage = new LogInPage(driver);
+            driver.Navigate().GoToUrl(Constant.BaseUrl);
+            logInPage.LogInAddtoCart();
         }
     }
 }

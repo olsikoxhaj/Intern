@@ -5,12 +5,10 @@ using System.Threading;
 
 namespace Intern.PageObject
 {
-    public class LogInPage
+    public class AddtoCartPage
     {
         private IWebDriver driver;
-
-        //SHTOHET KONSTRUKTOR ME PARAMETER DHE SHIKOJE KUR THIRRET KLASA SI THIRRET
-        public LogInPage(IWebDriver driver)
+        public AddtoCartPage(IWebDriver driver)
         {
             this.driver = driver;
         }
@@ -24,13 +22,10 @@ namespace Intern.PageObject
         public IWebElement AddtoCartWebelement => driver.FindElement(AddtoCartField);
         public IWebElement CheckoutWebelement => driver.FindElement(CheckoutField);
         public IWebElement checkout2Webelement => driver.FindElement(Checkout2Field);
-        public IWebElement CountryFieldWebelement =>driver.FindElement(CountryField);
+        public IWebElement CountryFieldWebelement => driver.FindElement(CountryField);
         public IWebElement AlbFieldWebelement => driver.FindElement(AlbField);
         public IWebElement check2FieldWebelement => driver.FindElement(check2Field);
         public IWebElement PurchaseFieldWebelement => driver.FindElement(PurchaseField);
-
-
-
 
 
         public By usernameField => By.XPath("//input[@type='text' and @name='username' and @id='username']");
@@ -46,65 +41,6 @@ namespace Intern.PageObject
         public By AlbField => By.XPath("//*[contains(text(), 'Albania')]");
         public By check2Field => By.XPath("//label[@for='checkbox2']");
         public By PurchaseField => By.XPath("//input[@class='btn btn-success btn-lg' and @type='submit' and @value='Purchase']");
-
-
-        public void LogInSucces()
-        {
-            usernameFieldWebelement.SendKeys(Constant.Username);
-            passwordFieldWebelement.SendKeys(Constant.Password);
-            AdminFieldWebelement.Click();
-            SelectOptionFromVarSelectByValue("teach");
-            checkbocwebelemnt.Click();
-            SingInwebelement.Click();
-
-        }
-        public void SelectOptionFromVarSelectByValue(string value)
-        {
-            var select = new SelectElement(driver.FindElement(varSelectField));
-            select.SelectByValue(value);
-            Thread.Sleep(5000);
-        }
-
-        public void UsernameWrong()
-        {
-            usernameFieldWebelement.SendKeys("Username");
-            passwordFieldWebelement.SendKeys(Constant.Password);
-            AdminFieldWebelement.Click();
-            SelectOptionFromVarSelectByValue("teach");
-            checkbocwebelemnt.Click();
-            SingInwebelement.Click();
-        }
-
-        public void PasswordWrong()
-        {
-            usernameFieldWebelement.SendKeys(Constant.Username);
-            passwordFieldWebelement.SendKeys("lalalala");
-            AdminFieldWebelement.Click();
-            SelectOptionFromVarSelectByValue("teach");
-            checkbocwebelemnt.Click();
-            SingInwebelement.Click();
-        }
-
-        public void PasswordNull()
-        {
-            usernameFieldWebelement.SendKeys(Constant.Username);
-            passwordFieldWebelement.SendKeys("        ");
-            AdminFieldWebelement.Click();
-            SelectOptionFromVarSelectByValue("teach");
-            checkbocwebelemnt.Click();
-            SingInwebelement.Click();
-        }
-
-        public void PasswordNullUsernameNull()
-        {
-            usernameFieldWebelement.SendKeys("         ");
-            passwordFieldWebelement.SendKeys("        ");
-            AdminFieldWebelement.Click();
-            SelectOptionFromVarSelectByValue("teach");
-            checkbocwebelemnt.Click();
-            SingInwebelement.Click();
-        }
-
         public void LogInAddtoCart()
         {
             usernameFieldWebelement.SendKeys(Constant.Username);
@@ -124,6 +60,11 @@ namespace Intern.PageObject
             check2FieldWebelement.Click();
             PurchaseFieldWebelement.Click();
         }
-        // Other methods related to the LogIn page
+        public void SelectOptionFromVarSelectByValue(string value)
+        {
+            var select = new SelectElement(driver.FindElement(varSelectField));
+            select.SelectByValue(value);
+            Thread.Sleep(5000);
+        }
     }
 }
