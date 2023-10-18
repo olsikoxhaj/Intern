@@ -8,6 +8,7 @@ namespace Intern.TestCase
     public class AddtoCart : SetUp
     {
         public AddtoCartPage addtoCart;
+        public LogInPage logIn;
 
         [Test]
         public void LogInAddtoCart()

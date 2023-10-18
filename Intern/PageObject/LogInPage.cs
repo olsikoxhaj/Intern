@@ -14,7 +14,6 @@ namespace Intern.PageObject
         {
             this.driver = driver;
         }
-
         public IWebElement usernameFieldWebelement => driver.FindElement(usernameField);
         public IWebElement passwordFieldWebelement => driver.FindElement(passwordField);
         public IWebElement AdminFieldWebelement => driver.FindElement(AdminField);
@@ -29,10 +28,6 @@ namespace Intern.PageObject
         public IWebElement check2FieldWebelement => driver.FindElement(check2Field);
         public IWebElement PurchaseFieldWebelement => driver.FindElement(PurchaseField);
 
-
-
-
-
         public By usernameField => By.XPath("//input[@type='text' and @name='username' and @id='username']");
         public By passwordField => By.XPath("//input[@type='password' and @name='password' and @id='password']");
         public By AdminField => By.XPath("//input[@type='radio' and @value='admin' and @id='usertype' and @name='radio' and @checked='checked']");
@@ -46,7 +41,6 @@ namespace Intern.PageObject
         public By AlbField => By.XPath("//*[contains(text(), 'Albania')]");
         public By check2Field => By.XPath("//label[@for='checkbox2']");
         public By PurchaseField => By.XPath("//input[@class='btn btn-success btn-lg' and @type='submit' and @value='Purchase']");
-
 
         public void LogInSucces()
         {
@@ -103,26 +97,6 @@ namespace Intern.PageObject
             SelectOptionFromVarSelectByValue("teach");
             checkbocwebelemnt.Click();
             SingInwebelement.Click();
-        }
-
-        public void LogInAddtoCart()
-        {
-            usernameFieldWebelement.SendKeys(Constant.Username);
-            passwordFieldWebelement.SendKeys(Constant.Password);
-            AdminFieldWebelement.Click();
-            checkbocwebelemnt.Click();
-            SelectOptionFromVarSelectByValue("teach");
-            SingInwebelement.Click();
-            Thread.Sleep(3000);
-            AddtoCartWebelement.Click();
-            CheckoutWebelement.Click();
-            checkout2Webelement.Click();
-            CountryFieldWebelement.SendKeys("Albania");
-            Thread.Sleep(10000);
-            AlbFieldWebelement.Click();
-            Thread.Sleep(3000);
-            check2FieldWebelement.Click();
-            PurchaseFieldWebelement.Click();
         }
         // Other methods related to the LogIn page
     }
