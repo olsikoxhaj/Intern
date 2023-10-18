@@ -7,15 +7,18 @@ namespace Intern.TestCase
 {
     public class AddtoCart : SetUp
     {
-        public AddtoCartPage addtoCart;
-        public LogInPage logIn;
+        public AddtoCartPage addtoCartPage;
+        public LogInPage logInPage;
 
         [Test]
-        public void LogInAddtoCart()
+        public void ProductAdd()
         {
-            addtoCart = new AddtoCartPage (driver);
+            logInPage = new LogInPage(driver);
             driver.Navigate().GoToUrl(Constant.BaseUrl);
-            addtoCart.LogInAddtoCart();
+            logInPage.LogInSucces();
+
+            addtoCartPage = new AddtoCartPage(driver);
+            addtoCartPage.LogInAddtoCart();
         }
     }
 }

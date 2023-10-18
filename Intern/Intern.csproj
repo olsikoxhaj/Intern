@@ -106,10 +106,12 @@
   <ItemGroup>
     <Compile Include="PageObject\AddtoCartPage.cs" />
     <Compile Include="PageObject\LogInPage.cs" />
+    <Compile Include="PageObject\SearchProductPage.cs" />
     <Compile Include="SetUP\Constant.cs" />
     <Compile Include="SetUP\SetUp.cs" />
     <Compile Include="TestCase\AddtoCart.cs" />
     <Compile Include="TestCase\LogIN.cs" />
+    <Compile Include="TestCase\Search.cs" />
     <Compile Include="TestCase\SearchProduct.cs" />
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

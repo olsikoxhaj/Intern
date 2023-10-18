@@ -24,7 +24,6 @@ namespace Intern.SetUP
             if (browserType.Equals("Chrome", StringComparison.OrdinalIgnoreCase))
             {
                 driver = new ChromeDriver();
-                //driver = new ChromeDriver(@"C:\Users\imecaj\source\repos\Intern\packages\Selenium.WebDriver.ChromeDriver.118.0.5993.7000\driver\win32");
             }
             else if (browserType.Equals("Edge", StringComparison.OrdinalIgnoreCase))
             {

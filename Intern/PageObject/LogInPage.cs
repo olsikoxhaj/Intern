@@ -1,6 +1,8 @@
 ﻿using Intern.SetUP;
+using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
+using System.Diagnostics;
 using System.Threading;
 
 namespace Intern.PageObject
@@ -14,6 +16,7 @@ namespace Intern.PageObject
         {
             this.driver = driver;
         }
+
         public IWebElement usernameFieldWebelement => driver.FindElement(usernameField);
         public IWebElement passwordFieldWebelement => driver.FindElement(passwordField);
         public IWebElement AdminFieldWebelement => driver.FindElement(AdminField);
@@ -50,6 +53,7 @@ namespace Intern.PageObject
             SelectOptionFromVarSelectByValue("teach");
             checkbocwebelemnt.Click();
             SingInwebelement.Click();
+            Thread.Sleep(5000);
 
         }
         public void SelectOptionFromVarSelectByValue(string value)
@@ -97,6 +101,7 @@ namespace Intern.PageObject
             SelectOptionFromVarSelectByValue("teach");
             checkbocwebelemnt.Click();
             SingInwebelement.Click();
+           
         }
         // Other methods related to the LogIn page
     }
