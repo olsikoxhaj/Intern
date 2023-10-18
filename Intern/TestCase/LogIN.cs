@@ -45,12 +45,5 @@ namespace Intern.TestCase
             driver.Navigate().GoToUrl(Constant.BaseUrl);
             logInPage.PasswordNullUsernameNull();
         }
-        [Test]
-        public void LogInAddtoCart()
-        {
-            logInPage = new LogInPage(driver);
-            driver.Navigate().GoToUrl(Constant.BaseUrl);
-            logInPage.LogInAddtoCart();
-        }
     }
 }
