@@ -9,14 +9,16 @@ namespace Intern.SetUP
     public class SetUp
     {
         protected IWebDriver driver;
-
+        #region OneTimeSetUp Chrome
         [SetUp]
         public void OneTimeSetUp()
         {
             string browserType = "Chrome"; // Change to "Edge" if needed
             driver = InitDriver(browserType);
         }
+        #endregion
 
+        #region IWebDriver InitDriver(string browserType) if else
         public IWebDriver InitDriver(string browserType)
         {
             IWebDriver driver = null; // Initialize it to null
@@ -36,7 +38,9 @@ namespace Intern.SetUP
 
             return driver;
         }
+        #endregion
 
+        #region TearDown
         [TearDown]
         public void OneTimeTearDown()
         {
@@ -45,5 +49,6 @@ namespace Intern.SetUP
                 driver.Quit();
             }
         }
+        #endregion
     }
 }

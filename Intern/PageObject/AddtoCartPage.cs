@@ -6,6 +6,7 @@ using System.Threading;
 
 namespace Intern.PageObject
 {
+   
     public class AddtoCartPage 
     {
         private IWebDriver driver;
@@ -13,7 +14,8 @@ namespace Intern.PageObject
         {
             this.driver = driver;
         }
-
+    
+        #region IWebElement
         public IWebElement AddtoCartWebelement => driver.FindElement(AddtoCartField);
         public IWebElement CheckoutWebelement => driver.FindElement(CheckoutField);
         public IWebElement checkout2Webelement => driver.FindElement(Checkout2Field);
@@ -22,7 +24,9 @@ namespace Intern.PageObject
         public IWebElement check2FieldWebelement => driver.FindElement(check2Field);
         public IWebElement PurchaseFieldWebelement => driver.FindElement(PurchaseField);
         public IWebElement succesMessageFieldWebelement => driver.FindElement(succesMessageField);
+        #endregion
 
+        #region By Element
         public By AddtoCartField => By.XPath("//button[@class='btn btn-info']");
         public By CheckoutField => By.XPath("//a[@class='nav-link btn btn-primary']");
         public By Checkout2Field => By.XPath("//button[contains(@class, 'btn-success')]");
@@ -31,6 +35,10 @@ namespace Intern.PageObject
         public By check2Field => By.XPath("//label[@for='checkbox2']");
         public By PurchaseField => By.XPath("//input[@class='btn btn-success btn-lg' and @type='submit' and @value='Purchase']");
         public By succesMessageField => By.XPath("//div[@class='alert alert-success alert-dismissible']");
+
+        #endregion
+
+        #region LogInAddtoCart
         public void LogInAddtoCart()
         {
             AddtoCartWebelement.Click();
@@ -47,6 +55,7 @@ namespace Intern.PageObject
             string expectedSuccessText = "×\r\nSuccess! Thank you! Your order will be delivered in next few weeks :-).";
            Assert.AreEqual(expectedSuccessText, actualSuccessText);
         }
+        #endregion
 
     }
 }

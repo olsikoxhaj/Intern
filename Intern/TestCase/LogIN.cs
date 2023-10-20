@@ -9,6 +9,7 @@ namespace Intern.TestCase
     {
         public LogInPage logInPage;
 
+        #region LogIn TestCase
         [Test]
         public void LogInOnly()
         {
@@ -45,5 +46,6 @@ namespace Intern.TestCase
             driver.Navigate().GoToUrl(Constant.BaseUrl);
             logInPage.PasswordNullUsernameNull();
         }
+        #endregion
     }
 }

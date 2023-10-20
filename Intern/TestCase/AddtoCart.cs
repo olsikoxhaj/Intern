@@ -9,7 +9,7 @@ namespace Intern.TestCase
     {
         public AddtoCartPage addtoCartPage;
         public LogInPage logInPage;
-
+        #region ProductAdd
         [Test]
         public void ProductAdd()
         {
@@ -20,5 +20,6 @@ namespace Intern.TestCase
             addtoCartPage = new AddtoCartPage(driver);
             addtoCartPage.LogInAddtoCart();
         }
+        #endregion
     }
 }

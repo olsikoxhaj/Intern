@@ -12,7 +12,7 @@ namespace Intern.TestCase
     public class SearchProduct : SetUp
     {
         public SearchProductPage searchProductPage;
-
+        #region SearchProductAddtoCart TestCase
         [Test]
         public void SearchProductAddtoCart()
         {
@@ -20,5 +20,6 @@ namespace Intern.TestCase
             driver.Navigate().GoToUrl(Constant.otherUrl);
             searchProductPage.SearchProduct();
         }
+        #endregion
     }
 }
