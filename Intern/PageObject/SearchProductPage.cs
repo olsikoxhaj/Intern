@@ -18,6 +18,7 @@ namespace Intern.PageObject
         {
             this.driver = driver;
         }
+        #region IWebElement
 
         public IWebElement searchFieldWebelement => driver.FindElement(searchFiled);
         public IWebElement AddToCartFieldWebelement => driver.FindElement(AddToCartField);
@@ -28,9 +29,9 @@ namespace Intern.PageObject
         public IWebElement check3FieldWebelement => driver.FindElement(check3Field);
         public IWebElement Procced2FieldWebelement => driver.FindElement(Procced2Field);
         public IWebElement succesMessageFieldWebelement => driver.FindElement(succesMessageField);
+        #endregion
 
-
-
+        #region By Element  
         public By searchFiled => By.XPath("//input[@type='search' and @placeholder='Search for Vegetables and Fruits' and @class='search-keyword']");
         public By AddToCartField => By.XPath("//button[text()='ADD TO CART' and @type='button']");
         public By MyCartField => By.XPath("//a[@class='cart-icon']");
@@ -41,7 +42,9 @@ namespace Intern.PageObject
         public By Procced2Field => By.XPath("//button[text()='Proceed']");
         public By succesMessageField => By.XPath("//span[@style='color:green;font-size:25px']");
 
+        #endregion
 
+        #region SearchProduct
         public void SearchProduct()
         {
             searchFieldWebelement.SendKeys("Brocolli - 1 Kg");
@@ -63,13 +66,16 @@ namespace Intern.PageObject
             Assert.AreEqual(expectedSuccessText, actualSuccessText);
 
         }
+        #endregion
+
+        #region VarSelectByValue
         public void SelectOptionFromVarSelectByValue(string value)
         {
             var selectElement = new SelectElement(driver.FindElement(dropdownField));
             selectElement.SelectByValue(value);
             Thread.Sleep(5000);
         }
-
+        #endregion
     }
 
 }

@@ -16,7 +16,7 @@ namespace Intern.PageObject
         {
             this.driver = driver;
         }
-
+        #region IWebElement 
         public IWebElement usernameFieldWebelement => driver.FindElement(usernameField);
         public IWebElement passwordFieldWebelement => driver.FindElement(passwordField);
         public IWebElement AdminFieldWebelement => driver.FindElement(AdminField);
@@ -30,7 +30,10 @@ namespace Intern.PageObject
         public IWebElement AlbFieldWebelement => driver.FindElement(AlbField);
         public IWebElement check2FieldWebelement => driver.FindElement(check2Field);
         public IWebElement PurchaseFieldWebelement => driver.FindElement(PurchaseField);
+        #endregion
 
+
+        #region By Element
         public By usernameField => By.XPath("//input[@type='text' and @name='username' and @id='username']");
         public By passwordField => By.XPath("//input[@type='password' and @name='password' and @id='password']");
         public By AdminField => By.XPath("//input[@type='radio' and @value='admin' and @id='usertype' and @name='radio' and @checked='checked']");
@@ -45,6 +48,10 @@ namespace Intern.PageObject
         public By check2Field => By.XPath("//label[@for='checkbox2']");
         public By PurchaseField => By.XPath("//input[@class='btn btn-success btn-lg' and @type='submit' and @value='Purchase']");
 
+        #endregion
+
+        #region LogInSucces
+
         public void LogInSucces()
         {
             usernameFieldWebelement.SendKeys(Constant.Username);
@@ -56,13 +63,19 @@ namespace Intern.PageObject
             Thread.Sleep(5000);
 
         }
+        #endregion
+
+        #region VarSelectByValue
+
         public void SelectOptionFromVarSelectByValue(string value)
         {
             var select = new SelectElement(driver.FindElement(varSelectField));
             select.SelectByValue(value);
             Thread.Sleep(5000);
         }
+        #endregion
 
+        #region UsernameWrong  
         public void UsernameWrong()
         {
             usernameFieldWebelement.SendKeys("Username");
@@ -72,7 +85,9 @@ namespace Intern.PageObject
             checkbocwebelemnt.Click();
             SingInwebelement.Click();
         }
+        #endregion
 
+        #region PasswordWrong  
         public void PasswordWrong()
         {
             usernameFieldWebelement.SendKeys(Constant.Username);
@@ -82,7 +97,9 @@ namespace Intern.PageObject
             checkbocwebelemnt.Click();
             SingInwebelement.Click();
         }
+        #endregion
 
+        #region PasswordNull  
         public void PasswordNull()
         {
             usernameFieldWebelement.SendKeys(Constant.Username);
@@ -92,7 +109,9 @@ namespace Intern.PageObject
             checkbocwebelemnt.Click();
             SingInwebelement.Click();
         }
+        #endregion
 
+        #region PasswordNullUsernameNull
         public void PasswordNullUsernameNull()
         {
             usernameFieldWebelement.SendKeys("         ");
@@ -101,8 +120,8 @@ namespace Intern.PageObject
             SelectOptionFromVarSelectByValue("teach");
             checkbocwebelemnt.Click();
             SingInwebelement.Click();
-           
         }
+        #endregion
         // Other methods related to the LogIn page
     }
 }
